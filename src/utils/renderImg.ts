@@ -1,14 +1,16 @@
 import { Canvas, createCanvas, loadImage, registerFont } from "canvas";
 import { charData } from "../types/starrail";
+import path from "path";
+import fs from "fs";
 
 export async function renderImg(data: charData): Promise<Canvas> {
   const canvas = createCanvas(1920, 1080);
   const ctx = canvas.getContext("2d");
 
-  registerFont("../assets/font/kt.ttf", { family: "kt" });
+  registerFont(path.resolve(__dirname, "../assets/font/kt.ttf"), { family: "kt" });
 
   // 背景画像
-  await loadImage("../assets/img/back.jpg").then((img) => {
+  await loadImage(filePath("../assets/img/back.png")).then((img) => {
     ctx.drawImage(img, 0, 0, 1920, 1080);
   });
 
@@ -26,7 +28,7 @@ export async function renderImg(data: charData): Promise<Canvas> {
   });
 
   // 枠描画
-  await loadImage("../assets/img/front.png").then((img) => {
+  await loadImage(filePath("../assets/img/front.png")).then((img) => {
     ctx.drawImage(img, 0, 0, 1920, 1080);
   });
 
@@ -96,7 +98,7 @@ export async function renderImg(data: charData): Promise<Canvas> {
       ctx.drawImage(img, 1100, 130 + i * 150, img.width / 1.3, img.height / 1.3);
     });
     if (data["rank_icons"][i]["lock"] == true) {
-      await loadImage("../assets/img/back_icon.png").then((img) => {
+      await loadImage(filePath("../assets/img/back_icon.png")).then((img) => {
         ctx.drawImage(img, 1100, 130 + i * 150, img.width / 1.3, img.height / 1.3);
       });
     }
@@ -225,4 +227,18 @@ export async function renderImg(data: charData): Promise<Canvas> {
   }
 
   return canvas;
+}
+
+/**
+ * 指定ファイルへの絶対パスを返す
+ * @param relativePath - __dirname ぁらの相対パス
+ * @returns 絶対パス(string)
+ */
+function filePath(relativePath: string): any {
+  return fs.readFileSync(path.resolve(__dirname, relativePath));
+}
+
+function fromEntry(Path: string): any {
+  const entryDir = path.dirname(require.main?.filename ?? process.argv[1]);
+  return fs.readFileSync(path.resolve(entryDir, Path));
 }

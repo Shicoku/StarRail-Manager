@@ -1,9 +1,13 @@
-import { createCanvas } from "canvas";
-import { charData } from "../types//starrail";
 import { calculateScore } from "../utils/scorer";
 import { parseChar } from "../utils/JsonParser";
 import { renderImg } from "../utils/renderImg";
+import { charData } from "../types//starrail";
+import { charDataBase } from "../types/charDataBase";
 import { ApiError } from "../errors/ApiError";
+import { createCanvas } from "canvas";
+import { config } from "../config";
+import path from "path";
+import fs from "fs";
 
 interface ClientOptions {
   lang?: string;
