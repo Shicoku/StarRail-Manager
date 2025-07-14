@@ -21,8 +21,9 @@ export function parseChar(data: any, index: number): charData | null {
         rarity: char.light_cone.rarity,
         rank: char.light_cone.rank,
         icon: config.StarRailPath + char.light_cone.preview,
+        level: char.light_cone.level,
         attributes: char.light_cone.attributes.map((a: any) => ({
-          name: a.name,
+          name: cleanAffixName(a.name),
           icon: config.StarRailPath + a.icon,
           val: a.display,
         })),
@@ -99,5 +100,6 @@ function cleanAffixName(name: string): string {
   return name
     .replace(/..?属性ダメージ/, "属性ダメ")
     .replace("会心ダメージ", "会心ダメ")
-    .replace("EP回復効率", "EP回復");
+    .replace("EP回復効率", "EP回復")
+    .replace("基礎", "");
 }

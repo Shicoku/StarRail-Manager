@@ -51,7 +51,7 @@ export class Client {
   }
 
   getCharBase(name: string): any {
-    const charData = JSON.parse(fs.readFileSync(config.StarRailPath + "index_min/jp/characters.json", "utf-8"));
+    const charData = JSON.parse(fs.readFileSync(config.StarRailPath + `index_min/${this.lang}/characters.json`, "utf-8"));
     for (const id in charData) {
       const char = charData[id];
       if (char.name.includes(name)) {
