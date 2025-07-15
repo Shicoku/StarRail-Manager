@@ -1,31 +1,32 @@
 # StarRail Manager
-[日本語はこちら](./doc/jp/README.md)
-The StarRail Manager is a Node.js wrapper for the MiHoMo API and StarRail Data used in Honkai: StarRail.
+[EN here](../../README.md)\
+StarRail Managerは、node.js用のMiHoMo APIラッパー、スターレイルのデータを取得するライブラリです。
 
 > [!WARNING]
-> This project is in beta.\
-> It may undergo significant changes in future updates.
+> このプロジェクトは現在ベータ版です。\
+> 今後のアップデートで大きく変更される可能性があります。
 
-## Install
+## インストール
 
 ```
 $ npm install starrail-manager
 ```
 > [!WARNING]
-> The project is not yet published on npm.
+> 現状、npmは未公開です。\
+> 今後公開する予定です。
 
 
-## How to use
-### Fetching data from MiHoMo API
+## 使い方
+### MiHoMo API取得
 ```js
 const { Client } = require("starrail-manager");
 
-const client = new Client({lang: "jp"}); // default is en
+const client = new Client({lang: "jp"}); // デフォルトはen(英語)
 const mihomoData = await client.getUserData(830647229);
 console.log(mihomoData);
 ```
 
-### Creating a Build Card
+### ビルドカード作成
 ```js
 const { Client } = require("starrail-manager");
 const fs = require("fs");
@@ -37,9 +38,9 @@ client.createImg(830647229, 0).then((canvas) => {
 ```
 
 > [!WARNING]
-> The Build Card is available only in Japanese.
+> ビルドカードの作成は日本語にのみ対応しています。
 
-### Getting Character Data
+### キャラクターのデータを取得する
 ```js
 const { Character } = require("starrail-manager");
 
@@ -51,7 +52,7 @@ console.log(charData.name);
 // 三月なのか
 ```
 
-### Getting Light Cone Data
+### 光円錐のデータを取得する
 ```js
 const { LightCone } = require("starrail-manager");
 
@@ -63,13 +64,13 @@ console.log(data.name);
 // よぉ、ここにいるぜ
 ```
 
-# API and Data
+# APIとデータ
 ## API
-This package uses the `MiHoMo API`.\
+本パッケージでは`MiHoMo API`を使用しています。\
 **[MiHoMo API](https://march7th.xyz/en/)**
 
-## Data
-Character Data, Light Cone Data, and other data are retrieved using `StarRailRes`\
+## データ
+キャラクターデータ、光円錐データ、およびその他のデータは`StarRailRes`を参照しています。\
 **[StarRailRes](https://github.com/Mar-7th/StarRailRes)**\
 また、スコア計算に使用する重要度データは`StarRailScore`を参照しています。\
 **[StarRailScore](https://github.com/Mar-7th/StarRailScore)**
