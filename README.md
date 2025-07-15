@@ -71,5 +71,5 @@ This package uses the `MiHoMo API`.\
 ## Data
 Character Data, Light Cone Data, and other data are retrieved using `StarRailRes`\
 **[StarRailRes](https://github.com/Mar-7th/StarRailRes)**\
-また、スコア計算に使用する重要度データは`StarRailScore`を参照しています。\
+The Weight Data used for score calculation references `StarRailScore`\
 **[StarRailScore](https://github.com/Mar-7th/StarRailScore)**
