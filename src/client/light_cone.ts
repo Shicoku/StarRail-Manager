@@ -18,12 +18,12 @@ export class LightCone {
     }
   }
 
-  data(id: number) {
+  getData(id: number) {
     const light_cone = JSON.parse(fs.readFileSync(`${config.StarRailPath}/index_min/${this.lang}/light_cones.json`, "utf-8"));
     return light_cone[id];
   }
 
-  rank(id: number) {
+  getRank(id: number) {
     const light_cone = JSON.parse(fs.readFileSync(`${config.StarRailPath}/index_min/${this.lang}/light_cone_ranks.json`, "utf-8"));
     return light_cone[id];
   }
