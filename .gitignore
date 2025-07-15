@@ -8,4 +8,6 @@ package-lock.json
 
 /StarRailScore
 
-/StarRailRes
+./StarRailRes
+
+*.bat

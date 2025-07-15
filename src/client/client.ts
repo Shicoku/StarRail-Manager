@@ -13,11 +13,17 @@ interface ClientOptions {
   lang?: string;
 }
 
+const languages = ["cht", "cn", "de", "en", "es", "fr", "id", "jp", "kr", "pt", "ru", "th", "vi"] as const;
+type SupportedLang = (typeof languages)[number];
+
 export class Client {
   private lang: string;
 
   constructor(options: ClientOptions = {}) {
     this.lang = options.lang ?? "en";
+    if (!languages.includes(this.lang as SupportedLang)) {
+      throw new Error(`The Language is not supported: ${options.lang}`);
+    }
   }
 
   async getUserData(uid: number): Promise<any> {
@@ -44,6 +50,7 @@ export class Client {
   }
 
   async createImg(uid: number, index: number): Promise<ReturnType<typeof createCanvas> | null> {
+    this.lang = "jp";
     const data = await this.getCharData(uid, index);
     if (!data) return null;
 

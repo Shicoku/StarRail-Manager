@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && copyfiles -u 2 \"src/assets/**/*\" dist/assets"
+    "build": "tsc && copyfiles -u 2 \"src/assets/**/*\" dist/assets",
+    "pull": "pull.bat"
   },
   "keywords": [],
   "author": "",
