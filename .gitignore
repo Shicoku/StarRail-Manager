@@ -1,13 +1,6 @@
 /node_modules
-
 /dist
-
 package-lock.json
-
 /tools
-
-/StarRailScore
-
-./StarRailRes
-
 *.bat
+/mydata
