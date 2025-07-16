@@ -1,6 +1,10 @@
 # StarRail Manager
-[日本語はこちら](./doc/jp/README.md)\
-The StarRail Manager is a Node.js wrapper for the MiHoMo API and StarRail Data used in Honkai: StarRail.
+
+##### English | [日本語](./doc/jp/README.md)
+
+## Overview
+The StarRail Manager is a Node.js wrapper for the MiHoMo API and StarRail Data used in Honkai: StarRail.\
+**This is not an official Honkai: StarRail project**
 
 > [!WARNING]
 > This project is in beta.\

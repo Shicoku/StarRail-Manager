@@ -1,6 +1,10 @@
 # StarRail Manager
-[EN here](../../README.md)\
-StarRail Managerは、node.js用のMiHoMo APIラッパー、スターレイルのデータを取得するライブラリです。
+
+##### [English](../../README.md) | 日本語
+
+## 概要
+StarRail Managerは、node.js用のMiHoMo APIラッパー、スターレイルのデータを取得するライブラリです。\
+**これは崩壊: スターレイルの公式プロジェクトではありません。**
 
 > [!WARNING]
 > このプロジェクトは現在ベータ版です。\
