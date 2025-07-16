@@ -45,7 +45,7 @@ export class Client {
     return scoreData;
   }
 
-  async createImg(uid: number, index: number): Promise<ReturnType<typeof createCanvas> | null> {
+  async createBuildCard(uid: number, index: number): Promise<ReturnType<typeof createCanvas> | null> {
     this.lang = "jp";
     const data = await this.getCharData(uid, index);
     if (!data) return null;
