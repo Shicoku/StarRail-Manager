@@ -15,9 +15,6 @@ The StarRail Manager is a Node.js wrapper for the MiHoMo API and StarRail Data u
 ```
 $ npm install starrail-manager
 ```
-> [!WARNING]
-> The project is not yet published on npm.
-
 
 ## How to use
 ### Fetching data from MiHoMo API

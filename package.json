@@ -1,16 +1,20 @@
 {
   "name": "starrail-manager",
-  "version": "0.0.1",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc && copyfiles -u 2 \"src/assets/**/*\" dist/assets",
     "pull": "pull.bat",
     "show": "gh browse"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shicoku/StarRail-Manager"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Shicoku",
+  "license": "MIT",
   "dependencies": {
     "@types/node": "^24.0.13",
     "canvas": "^3.1.2",

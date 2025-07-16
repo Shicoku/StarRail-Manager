@@ -1,0 +1,9 @@
+/src
+/tools
+/doc
+/mydata
+/node_modules
+tsconfig.json
+.gitignore
+package-lock.json
+*.bat

@@ -15,10 +15,6 @@ StarRail Managerは、node.js用のMiHoMo APIラッパー、スターレイル�
 ```
 $ npm install starrail-manager
 ```
-> [!WARNING]
-> 現状、npmは未公開です。\
-> 今後公開する予定です。
-
 
 ## 使い方
 ### MiHoMo API取得
