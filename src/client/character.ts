@@ -22,15 +22,19 @@ export class Character {
 
   /**
    * get character base data from StarRailRes
-   * @param name - character name
+   * @param name - character name or id
    * @returns character data in json
    */
-  getCharBase(name: string): any {
+  getCharBase(name: string | number): any {
     const charData = JSON.parse(fs.readFileSync(config.StarRailPath + `index_min/${this.lang}/characters.json`, "utf-8"));
-    for (const id in charData) {
-      const char = charData[id];
-      if (char.name.includes(name)) {
-        return char;
+    if (typeof name === "number") {
+      return charData[name];
+    } else if (typeof name === "string") {
+      for (const id in charData) {
+        const char = charData[id];
+        if (char.name.includes(name)) {
+          return char;
+        }
       }
     }
     return null;
