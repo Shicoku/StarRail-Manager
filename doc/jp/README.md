@@ -6,14 +6,28 @@
 StarRail Managerは、node.js用のMiHoMo APIラッパー、スターレイルのデータを取得するライブラリです。\
 **これは崩壊: スターレイルの公式プロジェクトではありません。**
 
-> [!WARNING]
-> このプロジェクトは現在ベータ版です。\
-> 今後のアップデートで大きく変更される可能性があります。
+
+#### ⚠️ **Warning**
+**このプロジェクトは現在ベータ版です。\
+今後のアップデートで大きく変更される可能性があります。**
 
 ## インストール
 
 ```
 $ npm install starrail-manager
+```
+
+## クローン
+このパッケージを使用するには、以下の2つのリポジトリをクローンする必要があります。
+
+1. [StarRailScore](https://github.com/Mar-7th/StarRailScore)
+```
+$ git clone https://github.com/Mar-7th/StarRailScore.git
+```
+
+2. [StarRailRes](https://github.com/Mar-7th/StarRailRes)
+```
+$ git clone https://github.com/Mar-7th/StarRailRes.git
 ```
 
 ## 使い方
@@ -37,8 +51,8 @@ client.createImg(830647229, 0).then((canvas) => {
 });
 ```
 
-> [!WARNING]
-> ビルドカードの作成は日本語にのみ対応しています。
+#### ⚠️ **Warning**
+**ビルドカードの作成は日本語にのみ対応しています。**
 
 ### キャラクターのデータを取得する
 ```js

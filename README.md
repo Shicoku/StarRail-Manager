@@ -4,16 +4,29 @@
 
 ## Overview
 The StarRail Manager is a Node.js wrapper for the MiHoMo API and StarRail Data used in Honkai: StarRail.\
-**This is not an official Honkai: StarRail project**
+**This is not an official Honkai: StarRail project.**
 
-> [!WARNING]
-> This project is in beta.\
-> It may undergo significant changes in future updates.
+#### ⚠️ **Warning**
+**This project is in beta.\
+It may undergo significant changes in future updates.**
 
 ## Install
 
 ```
 $ npm install starrail-manager
+```
+
+## Clone
+To use this package, you need to clone two repositories.
+
+1. [StarRailScore](https://github.com/Mar-7th/StarRailScore)
+```
+$ git clone https://github.com/Mar-7th/StarRailScore.git
+```
+
+2. [StarRailRes](https://github.com/Mar-7th/StarRailRes)
+```
+$ git clone https://github.com/Mar-7th/StarRailRes.git
 ```
 
 ## How to use
@@ -37,8 +50,8 @@ client.createImg(830647229, 0).then((canvas) => {
 });
 ```
 
-> [!WARNING]
-> The Build Card is available only in Japanese.
+#### ⚠️ **Warning**
+**The Build Card is available only in Japanese.**
 
 ### Getting Character Data
 ```js
