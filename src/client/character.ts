@@ -20,16 +20,11 @@ export class Character {
     }
   }
 
-  data(id: number) {
-    const light_cone = JSON.parse(fs.readFileSync(`${config.StarRailPath}/index_min/${this.lang}/light_cones.json`, "utf-8"));
-    return light_cone[id];
-  }
-
-  rank(id: number) {
-    const light_cone = JSON.parse(fs.readFileSync(`${config.StarRailPath}/index_min/${this.lang}/light_cone_ranks.json`, "utf-8"));
-    return light_cone[id];
-  }
-
+  /**
+   * get character base data from StarRailRes
+   * @param name - character name
+   * @returns character data in json
+   */
   getCharBase(name: string): any {
     const charData = JSON.parse(fs.readFileSync(config.StarRailPath + `index_min/${this.lang}/characters.json`, "utf-8"));
     for (const id in charData) {
@@ -41,6 +36,12 @@ export class Character {
     return null;
   }
 
+  /**
+   * get character weight data from StarRailScore
+   * @param name - character name
+   * @param num - weight number(default: 0)
+   * @returns character weight data in json
+   */
   getCharWeight(name: string, num: number | null): any {
     const charDataSelf = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../assets/score/score_self.json"), "utf-8"));
     const charId = this.getCharBase(name).id;
@@ -58,6 +59,12 @@ export class Character {
     }
   }
 
+  /**
+   * set custom character weight data
+   * @param name - character name
+   * @param data - weight data
+   * @returns text message
+   */
   setCharWeight(name: string, data: charDataBase): any {
     const charData = this.getCharBase(name);
     const charId = charData.id;

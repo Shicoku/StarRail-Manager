@@ -22,6 +22,11 @@ export class Client {
     }
   }
 
+  /**
+   * get user and character data from MiHoMo API
+   * @param uid - user id
+   * @returns user and character data in json
+   */
   async getUserData(uid: number): Promise<any> {
     const url = `https://api.mihomo.me/sr_info_parsed/${uid}?lang=${this.lang}`;
     try {
@@ -36,6 +41,12 @@ export class Client {
     }
   }
 
+  /**
+   * get character data with scores
+   * @param uid - user id
+   * @param index - character index(0 ~ 7)
+   * @returns character data with score in json
+   */
   async getCharData(uid: number, index: number): Promise<charData | null> {
     const data = await this.getUserData(uid);
     const parsed = parseChar(data, index);
@@ -45,6 +56,14 @@ export class Client {
     return scoreData;
   }
 
+  /**
+   * create character build card
+   * @param uid - user id
+   * @param index character index(0 ~ 7)
+   * @returns build card in canvas
+   *
+   * @remarks only japanese
+   */
   async createBuildCard(uid: number, index: number): Promise<ReturnType<typeof createCanvas> | null> {
     this.lang = "jp";
     const data = await this.getCharData(uid, index);
