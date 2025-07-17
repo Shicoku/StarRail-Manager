@@ -43,7 +43,7 @@ export class Character {
    * @returns character weight data in json
    */
   getCharWeight(name: string, num: number | null): any {
-    const charDataSelf = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../assets/score/score_self.json"), "utf-8"));
+    const charDataSelf = JSON.parse(fs.readFileSync(path.resolve(__dirname, config.customWightPath), "utf-8"));
     const charId = this.getCharBase(name).id;
     let length = 0;
 
@@ -69,7 +69,7 @@ export class Character {
     const charData = this.getCharBase(name);
     const charId = charData.id;
     const charName = charData.name;
-    const charDataSelf = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../assets/score/score_self.json"), "utf-8"));
+    const charDataSelf = JSON.parse(fs.readFileSync(path.resolve(__dirname, config.customWightPath), "utf-8"));
 
     if (charDataSelf[charId]) {
       charDataSelf[charId].push(data);
@@ -77,7 +77,7 @@ export class Character {
       charDataSelf[charId] = [data];
     }
 
-    fs.writeFileSync(path.resolve(__dirname, "../assets/score/score_self.json"), JSON.stringify(charDataSelf, null, 2), "utf-8");
+    fs.writeFileSync(path.resolve(__dirname, config.customWightPath), JSON.stringify(charDataSelf, null, 2), "utf-8");
     return `${charName} の重要度データを作成しました。`;
   }
 }

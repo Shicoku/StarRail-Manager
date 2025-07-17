@@ -16,7 +16,7 @@ export function calculateScore(json: charData, weightData?: number | string | nu
   let weight: WeightMap = defaultWeight;
 
   if (typeof weightData === "number") {
-    const selfData = readJson("../assets/score/score_self.json");
+    const selfData = readJson(config.customWightPath);
     const arr = selfData[json.id];
     if (!arr || arr.length < weightData) {
       throw new Error(`${json.name} の重要度データが見つかりません。`);
@@ -25,7 +25,7 @@ export function calculateScore(json: charData, weightData?: number | string | nu
   }
 
   if (typeof weightData === "string") {
-    const selfData = readJson("../assets/score/score_self.json");
+    const selfData = readJson(config.customWightPath);
     const candidates = selfData[json.id];
     weight = candidates.find((item: any) => item.name === weightData) ?? defaultWeight;
   }
