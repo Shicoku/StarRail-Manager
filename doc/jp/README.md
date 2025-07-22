@@ -6,11 +6,6 @@
 StarRail Managerは、node.js用のMiHoMo APIラッパー、スターレイルのデータを取得するライブラリです。\
 **これは崩壊: スターレイルの公式プロジェクトではありません。**
 
-
-#### ⚠️ **Warning**
-**このプロジェクトは現在ベータ版です。\
-今後のアップデートで大きく変更される可能性があります。**
-
 ## インストール
 
 ```
@@ -88,3 +83,6 @@ console.log(data.name);
 **[StarRailRes](https://github.com/Mar-7th/StarRailRes)**\
 また、スコア計算に使用する重要度データは`StarRailScore`を参照しています。\
 **[StarRailScore](https://github.com/Mar-7th/StarRailScore)**
+
+[チェンジログ](../changelog/changelog.md)はこちらからみることができます。
+[ドキュメント](https://shicoku.github.io/StarRail-Manager-docs/)はこちらから見ることができます。

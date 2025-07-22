@@ -10,6 +10,9 @@ interface ClientOptions {
 const languages = ["cht", "cn", "de", "en", "es", "fr", "id", "jp", "kr", "pt", "ru", "th", "vi"] as const;
 type SupportedLang = (typeof languages)[number];
 
+/**
+ * get character and weight data or set weight data
+ */
 export class Character {
   private lang: string;
 

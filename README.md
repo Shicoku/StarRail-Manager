@@ -6,10 +6,6 @@
 The StarRail Manager is a Node.js wrapper for the MiHoMo API and StarRail Data used in Honkai: StarRail.\
 **This is not an official Honkai: StarRail project.**
 
-#### ⚠️ **Warning**
-**This project is in beta.\
-It may undergo significant changes in future updates.**
-
 ## Install
 
 ```
@@ -87,3 +83,7 @@ Character Data, Light Cone Data, and other data are retrieved using `StarRailRes
 **[StarRailRes](https://github.com/Mar-7th/StarRailRes)**\
 The Weight Data used for score calculation references `StarRailScore`\
 **[StarRailScore](https://github.com/Mar-7th/StarRailScore)**
+
+
+You can see the changelog [here](./doc/changelog/changelog.md)\
+You can see the document [here](https://shicoku.github.io/StarRail-Manager-docs/)

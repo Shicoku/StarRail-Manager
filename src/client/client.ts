@@ -12,6 +12,9 @@ interface ClientOptions {
 const languages = ["cht", "cn", "de", "en", "es", "fr", "id", "jp", "kr", "pt", "ru", "th", "vi"] as const;
 type SupportedLang = (typeof languages)[number];
 
+/**
+ * get data or create Build Card from MiHoMo API
+ */
 export class Client {
   private lang: string;
 

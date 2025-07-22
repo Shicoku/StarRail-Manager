@@ -1,6 +1,6 @@
 {
   "name": "starrail-manager",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -12,7 +12,18 @@
     "type": "git",
     "url": "https://github.com/Shicoku/StarRail-Manager"
   },
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "node",
+    "node-js",
+    "nodejs-modules",
+    "wrapper",
+    "wrapper-api",
+    "wrapper-library",
+    "starrail",
+    "honkai:starrail",
+    "mihomo-api"
+  ],
   "author": "Shicoku",
   "license": "MIT",
   "dependencies": {

@@ -8,6 +8,9 @@ interface ClientOptions {
 const languages = ["cht", "cn", "de", "en", "es", "fr", "id", "jp", "kr", "pt", "ru", "th", "vi"] as const;
 type SupportedLang = (typeof languages)[number];
 
+/**
+ * get light cone data
+ */
 export class LightCone {
   private lang: string;
 

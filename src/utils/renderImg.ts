@@ -1,5 +1,6 @@
 import { Canvas, createCanvas, loadImage, registerFont } from "canvas";
 import { charData } from "../types/starrail";
+import { config } from "../config";
 import path from "path";
 import fs from "fs";
 
@@ -63,7 +64,7 @@ export async function renderImg(data: charData): Promise<Canvas> {
       ctx.drawImage(img, 50, 810, 160.5, 199);
     }
     {
-      const img = await loadImage("StarRailRes/icon/deco/Rarity" + data["light_cone"]["rarity"] + ".png");
+      const img = await loadImage(filePath("../../" + config.StarRailPath + "icon/deco/Rarity" + data["light_cone"]["rarity"] + ".png"));
       if (data["light_cone"]["rarity"] == 3) ctx.drawImage(img, -25, 950, img.width / 1.5, img.height / 1.5);
       else if (data["light_cone"]["rarity"] == 4) ctx.drawImage(img, -45, 950, img.width / 1.5, img.height / 1.5);
       else ctx.drawImage(img, -55, 950, img.width / 1.5, img.height / 1.5);
@@ -121,7 +122,7 @@ export async function renderImg(data: charData): Promise<Canvas> {
         ctx.fillRect(1530, 50 + i * 170, 5, 150);
         ctx.textAlign = "start";
       });
-      await loadImage("StarRailRes/icon/deco/Rarity" + data["relics"][i]["rarity"] + ".png").then((img) => {
+      await loadImage(filePath("../../" + config.StarRailPath + "icon/deco/Rarity" + data["relics"][i]["rarity"] + ".png")).then((img) => {
         ctx.drawImage(img, 1180, 140 + i * 170, img.width / 2, img.height / 2);
         ctx.font = "25px 'kt'";
         ctx.fillStyle = "rgb(255, 255, 255)";
