@@ -27,7 +27,7 @@ export class LightCone {
    * @returns light cone data in json
    */
   getData(id: number) {
-    const light_cone = JSON.parse(fs.readFileSync(`${config.StarRailPath}/index_min/${this.lang}/light_cones.json`, "utf-8"));
+    const light_cone = JSON.parse(fs.readFileSync(`${"../../StarRailRes/"}/index_min/${this.lang}/light_cones.json`, "utf-8"));
     return light_cone[id];
   }
 
@@ -37,7 +37,7 @@ export class LightCone {
    * @returns light cone data in json
    */
   getRank(id: number) {
-    const light_cone = JSON.parse(fs.readFileSync(`${config.StarRailPath}/index_min/${this.lang}/light_cone_ranks.json`, "utf-8"));
+    const light_cone = JSON.parse(fs.readFileSync(`${"../../StarRailRes/"}/index_min/${this.lang}/light_cone_ranks.json`, "utf-8"));
     return light_cone[id];
   }
 }

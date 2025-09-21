@@ -7,11 +7,11 @@ export function parseChar(data: any, index: number): charData | null {
 
   const skill: Skill[] = char.skills.slice(0, 4).map((s: any) => ({
     level: s.level,
-    icon: config.StarRailPath + s.icon,
+    icon: "../../StarRailRes/" + s.icon,
   }));
 
   const rank_icons: RankIcon[] = Array.from({ length: 6 }, (_, i) => ({
-    icon: config.StarRailPath + char.rank_icons[i],
+    icon: "../../StarRailRes/" + char.rank_icons[i],
     lock: i >= char.rank ? true : false,
   }));
 
@@ -20,11 +20,11 @@ export function parseChar(data: any, index: number): charData | null {
         name: char.light_cone.name,
         rarity: char.light_cone.rarity,
         rank: char.light_cone.rank,
-        icon: config.StarRailPath + char.light_cone.preview,
+        icon: "../../StarRailRes/" + char.light_cone.preview,
         level: char.light_cone.level,
         attributes: char.light_cone.attributes.map((a: any) => ({
           name: cleanAffixName(a.name),
-          icon: config.StarRailPath + a.icon,
+          icon: "../../StarRailRes/" + a.icon,
           val: a.display,
         })),
       } as LightCone)
@@ -35,20 +35,20 @@ export function parseChar(data: any, index: number): charData | null {
       name: r.name,
       rarity: r.rarity,
       level: r.level,
-      icon: config.StarRailPath + r.icon,
+      icon: "../../StarRailRes/" + r.icon,
       score: 0,
       part: r.type,
       main_affix: {
         type: r.main_affix.type,
         name: cleanAffixName(r.main_affix.name),
-        icon: config.StarRailPath + r.main_affix.icon,
+        icon: "../../StarRailRes/" + r.main_affix.icon,
         val: r.main_affix.value,
         dis: r.main_affix.display,
       },
       sub_affix: r.sub_affix.map((s: any) => ({
         type: s.type,
         name: cleanAffixName(s.name),
-        icon: config.StarRailPath + s.icon,
+        icon: "../../StarRailRes/" + s.icon,
         val: s.value,
         dis: s.display,
       })),
@@ -57,7 +57,7 @@ export function parseChar(data: any, index: number): charData | null {
   const relic_sets: RelicSet[] =
     char.relic_sets?.map((rs: any) => ({
       name: rs.name,
-      icon: config.StarRailPath + rs.icon,
+      icon: "../../StarRailRes/" + rs.icon,
       num: rs.num,
     })) ?? [];
 
@@ -69,7 +69,7 @@ export function parseChar(data: any, index: number): charData | null {
     }
     return {
       name: cleanAffixName(add.name),
-      icon: config.StarRailPath + add.icon,
+      icon: "../../StarRailRes/" + add.icon,
       val,
     };
   });
@@ -83,12 +83,12 @@ export function parseChar(data: any, index: number): charData | null {
     id: char.id,
     name: char.name,
     level: char.level,
-    icon: config.StarRailPath + char.portrait,
+    icon: "../../StarRailRes/" + char.portrait,
     total_score: 0,
     skill,
     rank_icons,
-    path: config.StarRailPath + char.path.icon,
-    element: config.StarRailPath + char.element.icon,
+    path: "../../StarRailRes/" + char.path.icon,
+    element: "../../StarRailRes/" + char.element.icon,
     light_cone,
     relics,
     relic_sets,

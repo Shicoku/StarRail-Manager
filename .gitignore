@@ -4,3 +4,5 @@ package-lock.json
 /tools
 *.bat
 /mydata
+/StarRailRes
+/StarRailScore

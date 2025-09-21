@@ -29,7 +29,7 @@ export class Character {
    * @returns character data in json
    */
   getCharBase(name: string | number): any {
-    const charData = JSON.parse(fs.readFileSync(config.StarRailPath + `index_min/${this.lang}/characters.json`, "utf-8"));
+    const charData = JSON.parse(fs.readFileSync("../../StarRailRes/" + `index_min/${this.lang}/characters.json`, "utf-8"));
     if (typeof name === "number") {
       return charData[name];
     } else if (typeof name === "string") {

@@ -8,19 +8,16 @@ export async function renderImg(data: charData): Promise<Canvas> {
   const canvas = createCanvas(1920, 1080);
   const ctx = canvas.getContext("2d");
 
-  registerFont(path.resolve(__dirname, "../assets/font/kt.ttf"), { family: "kt" });
+  registerFont(path.resolve(__dirname, "../../assets/font/kt.ttf"), { family: "kt" });
 
-  // 背景画像
-  await loadImage(filePath("../assets/img/back.png")).then((img) => {
+  await loadImage(filePath("../../assets/img/back.png")).then((img) => {
     ctx.drawImage(img, 0, 0, 1920, 1080);
   });
 
-  // キャラ描画
   await loadImage(data["icon"]).then((img) => {
     ctx.drawImage(img, 200, -90, img.width / 1.5, img.height / 1.5);
   });
 
-  // 属性と運命アイコン描画
   await loadImage(data["element"]).then((img) => {
     ctx.drawImage(img, 160, 75, img.width / 5, img.height / 5);
   });
@@ -28,12 +25,10 @@ export async function renderImg(data: charData): Promise<Canvas> {
     ctx.drawImage(img, 220, 79, img.width / 10, img.height / 10);
   });
 
-  // 枠描画
-  await loadImage(filePath("../assets/img/front.png")).then((img) => {
+  await loadImage(filePath("../../assets/img/front.png")).then((img) => {
     ctx.drawImage(img, 0, 0, 1920, 1080);
   });
 
-  // ステータス描画
   let inter = 0;
   if (data["status"].length == 11) inter = 55;
   if (data["status"].length == 10) inter = 60;
@@ -51,7 +46,6 @@ export async function renderImg(data: charData): Promise<Canvas> {
     });
   }
 
-  // 光円錐描画
   if (data.light_cone) {
     {
       const img = await loadImage(data.light_cone.icon);
@@ -64,7 +58,7 @@ export async function renderImg(data: charData): Promise<Canvas> {
       ctx.drawImage(img, 50, 810, 160.5, 199);
     }
     {
-      const img = await loadImage(filePath("../../../../" + config.StarRailPath + "icon/deco/Rarity" + data["light_cone"]["rarity"] + ".png"));
+      const img = await loadImage(filePath("../../StarRailRes/icon/deco/Rarity" + data["light_cone"]["rarity"] + ".png"));
       if (data["light_cone"]["rarity"] == 3) ctx.drawImage(img, -25, 950, img.width / 1.5, img.height / 1.5);
       else if (data["light_cone"]["rarity"] == 4) ctx.drawImage(img, -45, 950, img.width / 1.5, img.height / 1.5);
       else ctx.drawImage(img, -55, 950, img.width / 1.5, img.height / 1.5);
@@ -81,7 +75,6 @@ export async function renderImg(data: charData): Promise<Canvas> {
     }
   }
 
-  // 軌跡描画
   for (let i = 0; i < data["skill"].length; i++) {
     const img = await loadImage(data["skill"][i]["icon"]);
     ctx.drawImage(img, 540, 220 + i * 150, img.width / 1.3, img.height / 1.3);
@@ -93,19 +86,17 @@ export async function renderImg(data: charData): Promise<Canvas> {
     ctx.fillText(level, x, 355 + i * 150);
   }
 
-  // 凸数描画
   for (let i = 0; i < data["rank_icons"].length; i++) {
     await loadImage(data["rank_icons"][i]["icon"]).then((img) => {
       ctx.drawImage(img, 1100, 130 + i * 150, img.width / 1.3, img.height / 1.3);
     });
     if (data["rank_icons"][i]["lock"] == true) {
-      await loadImage(filePath("../assets/img/back_icon.png")).then((img) => {
+      await loadImage(filePath("../../assets/img/back_icon.png")).then((img) => {
         ctx.drawImage(img, 1100, 130 + i * 150, img.width / 1.3, img.height / 1.3);
       });
     }
   }
 
-  // 遺物描画
   if (data["relics"]) {
     for (let i = 0; i < data["relics"].length; i++) {
       await loadImage(data["relics"][i]["icon"]).then((img) => {
@@ -122,7 +113,7 @@ export async function renderImg(data: charData): Promise<Canvas> {
         ctx.fillRect(1530, 50 + i * 170, 5, 150);
         ctx.textAlign = "start";
       });
-      await loadImage(filePath("../../../../" + config.StarRailPath + "icon/deco/Rarity" + data["relics"][i]["rarity"] + ".png")).then((img) => {
+      await loadImage(filePath("../../StarRailRes/icon/deco/Rarity" + data["relics"][i]["rarity"] + ".png")).then((img) => {
         ctx.drawImage(img, 1180, 140 + i * 170, img.width / 2, img.height / 2);
         ctx.font = "25px 'kt'";
         ctx.fillStyle = "rgb(255, 255, 255)";
@@ -149,7 +140,6 @@ export async function renderImg(data: charData): Promise<Canvas> {
     }
   }
 
-  // 遺物セット描画
   if (data["relic_sets"]) {
     let i = 0;
     let point = 0;
@@ -167,20 +157,17 @@ export async function renderImg(data: charData): Promise<Canvas> {
     }
   }
 
-  // キャラ名描画
   ctx.font = '60px "kt"';
   ctx.textAlign = "start";
   ctx.fillStyle = "rgb(255, 255, 255)";
   ctx.fillText(data["name"], 40, 70);
 
-  // キャラレベル描画
   ctx.font = '35px "kt"';
   ctx.fillStyle = "rgb(255, 255, 255)";
   ctx.fillText("Lv. " + data["level"], 45, 120);
   ctx.strokeStyle = "rgb(255, 255, 255)";
   ctx.strokeText("Lv. " + data["level"], 45, 120);
 
-  // スコア描画
   ctx.font = '40px "kt"';
   ctx.fillStyle = "rgb(255, 255, 255)";
   ctx.fillText("Total Score", 690, 950);
@@ -200,7 +187,6 @@ export async function renderImg(data: charData): Promise<Canvas> {
   ctx.strokeStyle = "rgb(255, 255, 255)";
   ctx.strokeText(scoreRank, 920, 1030);
 
-  // 遺物スコア描画
   if (data["relics"]) {
     for (let i = 0; i < data["relics"].length; i++) {
       ctx.fillRect(1780, 50 + i * 170, 5, 150);
@@ -237,9 +223,4 @@ export async function renderImg(data: charData): Promise<Canvas> {
  */
 function filePath(relativePath: string): any {
   return fs.readFileSync(path.resolve(__dirname, relativePath));
-}
-
-function fromEntry(Path: string): any {
-  const entryDir = path.dirname(require.main?.filename ?? process.argv[1]);
-  return fs.readFileSync(path.resolve(entryDir, Path));
 }
