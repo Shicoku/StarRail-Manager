@@ -7,3 +7,5 @@ tsconfig.json
 .gitignore
 package-lock.json
 *.bat
+/StarRailRes
+/StarRailScore
