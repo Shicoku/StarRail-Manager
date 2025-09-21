@@ -5,6 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc && copyfiles -u 2 \"src/assets/**/*\" dist/assets",
+    "dev": "tsc --watch",
     "pull": "pull.bat",
     "show": "gh browse"
   },

@@ -41,9 +41,11 @@ const { Client } = require("starrail-manager");
 const fs = require("fs");
 
 const client = new Client();
-client.createImg(830647229, 0).then((canvas) => {
-  fs.writeFileSync("output.png", canvas.toBuffer());
-});
+client.getCharData(830647229, 0).then((data) => {
+  client.createBuildCard(data).then((canvas) => {
+    fs.writeFileSync("output.png", canvas.toBuffer());
+  })
+})
 ```
 
 #### ⚠️ **Warning**

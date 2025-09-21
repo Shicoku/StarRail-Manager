@@ -1,4 +1,3 @@
-// src/utils/Scorer.ts
 import { charData } from "../types/starrail";
 import { config } from "../config";
 import path from "path";
@@ -6,29 +5,12 @@ import fs from "fs";
 
 type WeightMap = Record<string, any>;
 
-export function calculateScore(json: charData, weightData?: number | string | null): charData {
-  const defaultWeight: WeightMap = readJson(config.scorePath + "score.json");
+export function calculateScore(json: charData): charData {
+  const weight: WeightMap = readJson(config.scorePath + "score.json");
   const none_path = path.resolve(__dirname, "../assets/score/none.json");
   const weight_none = JSON.parse(fs.readFileSync(none_path, "utf-8"));
   const max_path = path.resolve(__dirname, "../assets/score/max_value.json");
   const maxVal = JSON.parse(fs.readFileSync(max_path, "utf-8"));
-
-  let weight: WeightMap = defaultWeight;
-
-  if (typeof weightData === "number") {
-    const selfData = readJson(config.customWightPath);
-    const arr = selfData[json.id];
-    if (!arr || arr.length < weightData) {
-      throw new Error(`${json.name} の重要度データが見つかりません。`);
-    }
-    weight = arr[weightData - 1];
-  }
-
-  if (typeof weightData === "string") {
-    const selfData = readJson(config.customWightPath);
-    const candidates = selfData[json.id];
-    weight = candidates.find((item: any) => item.name === weightData) ?? defaultWeight;
-  }
 
   let totalScore = 0;
 

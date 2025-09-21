@@ -61,15 +61,12 @@ export class Client {
 
   /**
    * create character build card
-   * @param uid - user id
-   * @param index character index(0 ~ 7)
+   * @param data - character data
    * @returns build card in canvas
    *
    * @remarks only japanese
    */
-  async createBuildCard(uid: number, index: number): Promise<ReturnType<typeof createCanvas> | null> {
-    this.lang = "jp";
-    const data = await this.getCharData(uid, index);
+  async createBuildCard(data: charData): Promise<ReturnType<typeof createCanvas> | null> {
     if (!data) return null;
 
     return await renderImg(data);
