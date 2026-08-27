@@ -87,4 +87,4 @@ console.log(data.name);
 **[StarRailScore](https://github.com/Mar-7th/StarRailScore)**
 
 [チェンジログ](../changelog/changelog.md)はこちらからみることができます。\
-[ドキュメント](https://shicoku.github.io/StarRail-Manager-docs/)はこちらから見ることができます。
+[ドキュメント](https://starrail-manager-docs.vercel.app/)はこちらから見ることができます。

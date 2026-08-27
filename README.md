@@ -88,4 +88,4 @@ The Weight Data used for score calculation references `StarRailScore`\
 
 
 You can see the changelog [here](./doc/changelog/changelog.md)\
-You can see the document [here](https://shicoku.github.io/StarRail-Manager-docs/)
+You can see the document [here](https://starrail-manager-docs.vercel.app/)
